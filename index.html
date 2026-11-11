@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10172a">
+<title>SevenMentor AI Visibility Monitor</title>
+<style>
+:root{--navy:#10172a;--navy2:#17213a;--ink:#182238;--muted:#718096;--line:#e7ebf2;--bg:#f5f7fb;--white:#fff;--purple:#6958d8;--purple2:#eeeaff;--green:#16865b;--red:#c64c59;--amber:#a56b12;--shadow:0 8px 28px rgba(20,31,56,.06)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:flex;min-height:100vh}.sidebar{width:248px;background:var(--navy);color:#dbe3f5;padding:24px 16px;display:flex;flex-direction:column;flex-shrink:0}.brand{display:flex;gap:11px;align-items:center;padding:2px 8px 26px}.brandmark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#8c7aff,#5a48c9);display:grid;place-items:center;color:white;font-weight:800;font-size:17px}.brand strong{display:block;color:#fff;font-size:14px;letter-spacing:.1px}.brand small{color:#9eabc5;font-size:11px}.navlabel{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;color:#7786a5;padding:13px 10px 7px}.nav button{width:100%;border:0;background:transparent;color:#aebbd3;text-align:left;padding:10px 12px;border-radius:9px;margin:2px 0;display:flex;gap:11px;align-items:center;font-weight:550}.nav button:hover,.nav button.active{background:#252f4b;color:#fff}.nav .ico{width:18px;text-align:center;font-size:15px}.sidefoot{margin-top:auto;padding:16px 10px 4px;color:#8290aa;font-size:11px;border-top:1px solid #2b3550}.main{flex:1;min-width:0}.topbar{height:70px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 32px;position:sticky;top:0;z-index:5}.crumb{font-weight:700;font-size:14px}.topright{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:12px}.pill{border-radius:99px;background:#eaf7f0;color:var(--green);font-weight:700;padding:5px 10px;font-size:11px}.content{padding:28px 32px 48px;max-width:1500px;margin:auto}.pagehead{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:22px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--purple);font-weight:800}.pagehead h1{font-size:25px;line-height:1.2;margin:5px 0 7px;letter-spacing:-.6px}.sub{color:var(--muted);margin:0}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;border-radius:9px;font-weight:650;font-size:12px}.btn:hover{border-color:#b9b0f4}.btn.primary{background:var(--purple);border-color:var(--purple);color:#fff}.btn.dark{background:var(--navy);border-color:var(--navy);color:#fff}.btn.danger{color:var(--red)}.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:17px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);min-width:0}.statlabel{font-size:12px;color:var(--muted);font-weight:600}.statvalue{font-size:29px;font-weight:800;letter-spacing:-1px;margin:8px 0 2px}.statnote{font-size:11px;color:var(--muted)}.staticon{float:right;background:var(--purple2);color:var(--purple);width:31px;height:31px;border-radius:9px;display:grid;place-items:center}.two{grid-template-columns:1.15fr .85fr}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card h2{font-size:14px;margin:0 0 4px}.card .desc{font-size:11px;color:var(--muted);margin:0 0 17px}.barrow{display:grid;grid-template-columns:130px 1fr 42px;align-items:center;gap:10px;margin:14px 0;font-size:12px}.track{height:9px;border-radius:99px;background:#edf0f6;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#8878ed,#5e4bd1);border-radius:99px}.barval{text-align:right;font-weight:700;color:#4c5870}.empty{padding:30px 15px;text-align:center;color:var(--muted);border:1px dashed #d9deea;border-radius:11px;font-size:12px}.empty strong{display:block;color:var(--ink);font-size:13px;margin-bottom:5px}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px}table{border-collapse:collapse;width:100%;font-size:12px;min-width:650px}th,td{text-align:left;padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#f8f9fc;color:#68758d;font-size:10px;text-transform:uppercase;letter-spacing:.7px}tr:last-child td{border-bottom:0}.tag{display:inline-block;padding:3px 7px;border-radius:99px;background:#f0efff;color:#5c4ac7;font-size:10px;font-weight:700}.tag.green{background:#eaf7f0;color:var(--green)}.tag.gray{background:#f0f2f6;color:#68758d}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:11px;font-weight:750;color:#526078}.field input,.field select,.field textarea{width:100%;border:1px solid #dce2ec;border-radius:9px;padding:10px 11px;background:#fff;color:var(--ink);outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:#8879e8;box-shadow:0 0 0 3px #eeeaff}.field textarea{min-height:130px;resize:vertical}.checkrow{display:flex;gap:18px;flex-wrap:wrap;padding:7px 0}.checkrow label{display:flex;align-items:center;gap:7px;font-size:12px;color:#4e5a70}.section{display:none}.section.active{display:block}.filterrow{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px}.filterrow select,.filterrow input{border:1px solid var(--line);border-radius:8px;background:#fff;padding:8px 10px;color:var(--ink);font-size:12px}.metricline{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px}.metricline:last-child{border-bottom:0}.metricline strong{font-size:13px}.promptitem{padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}.promptitem:last-child{border-bottom:0}.promptnum{background:var(--purple2);color:var(--purple);font-weight:800;border-radius:7px;padding:4px 7px;font-size:11px}.prompttext{flex:1;font-size:12px}.copybtn{border:0;background:#f1efff;color:#5d4ac8;padding:6px 9px;border-radius:7px;font-size:10px;font-weight:700}.notice{background:#fff9e9;border:1px solid #f3e2b7;color:#795719;border-radius:10px;padding:12px 14px;font-size:11px;margin-bottom:16px}.good{color:var(--green)}.muted{color:var(--muted)}.hidden{display:none!important}.toast{position:fixed;right:22px;bottom:22px;background:#182238;color:#fff;padding:12px 16px;border-radius:10px;box-shadow:var(--shadow);z-index:20;font-size:12px;opacity:0;transform:translateY(8px);transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}.mobilemenu{display:none}
+@media(max-width:1000px){.stats{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.sidebar{width:215px}.content{padding:22px}}
+@media(max-width:680px){.app{display:block}.sidebar{width:100%;padding:12px 14px}.brand{padding:0 5px 10px}.nav{display:flex;overflow:auto;gap:4px}.navlabel,.sidefoot{display:none}.nav button{white-space:nowrap;width:auto;padding:8px 10px;font-size:11px}.topbar{height:52px;padding:0 16px}.content{padding:20px 14px 35px}.pagehead{display:block}.actions{margin-top:14px}.stats{gap:10px}.card{padding:14px}.statvalue{font-size:24px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.barrow{grid-template-columns:100px 1fr 34px}.three{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brandmark">7M</div><div><strong>SevenMentor</strong><small>AI Visibility Monitor</small></div></div>
+  <div class="navlabel">Workspace</div>
+  <nav class="nav" id="nav">
+    <button class="active" data-page="dashboard"><span class="ico">▦</span>Dashboard</button>
+    <button data-page="research"><span class="ico">⌕</span>Research Records</button>
+    <button data-page="add"><span class="ico">＋</span>Add Research</button>
+    <button data-page="competitors"><span class="ico">⇄</span>Competitors</button>
+    <button data-page="prompts"><span class="ico">☷</span>Prompt Library</button>
+    <button data-page="reports"><span class="ico">▤</span>Reports & Backup</button>
+    <button data-page="settings"><span class="ico">⚙</span>Settings</button>
+  </nav>
+  <div class="sidefoot">Version 1.0 · Manual research mode<br>Data stays in this browser.</div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="crumb" id="crumb">Dashboard</div><div class="topright"><span class="pill">● Local storage</span><span>₹0 MVP</span></div></header>
+<div class="content">
+<section class="section active" id="page-dashboard">
+  <div class="pagehead"><div><div class="eyebrow">Brand intelligence</div><h1>AI visibility overview</h1><p class="sub">Track how AI platforms mention and recommend SevenMentor.</p></div><div class="actions"><button class="btn" onclick="exportCSV()">Export CSV</button><button class="btn primary" onclick="showPage('add')">＋ Add research</button></div></div>
+  <div class="notice"><strong>Measurement note:</strong> Scores are calculated only from the research records you enter. They are sample-based diagnostics, not official scores from ChatGPT, Google or other platforms. No demo records are included.</div>
+  <div class="grid stats">
+    <div class="card"><span class="staticon">◉</span><div class="statlabel">AI Visibility Index</div><div class="statvalue" id="kpi-score">—</div><div class="statnote">Internal weighted score / 100</div></div>
+    <div class="card"><span class="staticon">✦</span><div class="statlabel">Responses collected</div><div class="statvalue" id="kpi-total">0</div><div class="statnote">Saved research records</div></div>
+    <div class="card"><span class="staticon">◎</span><div class="statlabel">Brand mention rate</div><div class="statvalue" id="kpi-mentions">—</div><div class="statnote">Records mentioning SevenMentor</div></div>
+    <div class="card"><span class="staticon">↗</span><div class="statlabel">Recommendation rate</div><div class="statvalue" id="kpi-recommend">—</div><div class="statnote">Records recommending SevenMentor</div></div>
+  </div>
+  <div class="grid two">
+    <div class="card"><h2>Platform visibility</h2><p class="desc">Mention rate by platform, based on your saved records.</p><div id="platform-bars"><div class="empty"><strong>No research data yet</strong>Add your first AI answer to see platform comparisons.</div></div></div>
+    <div class="card"><h2>Visibility components</h2><p class="desc">Four metrics used in the internal index.</p><div id="component-metrics"><div class="empty">Metrics will appear after you add research.</div></div></div>
+  </div>
+  <div class="grid two" style="margin-top:16px">
+    <div class="card"><h2>Recent research</h2><p class="desc">Your latest saved observations.</p><div id="recent-records"><div class="empty">No records saved yet.</div></div></div>
+    <div class="card"><h2>Competitor mentions</h2><p class="desc">Count of competitor mentions in your entered responses.</p><div id="competitor-bars"><div class="empty">Competitor data will appear here.</div></div></div>
+  </div>
+</section>
+
+<section class="section" id="page-add">
+  <div class="pagehead"><div><div class="eyebrow">Manual data collection</div><h1>Add research record</h1><p class="sub">Paste an actual answer from an AI platform. One record = one platform response to one question.</p></div></div>
+  <div class="notice">Use the same question across platforms when comparing them. Keep the full answer and source URLs so the analysis remains auditable.</div>
+  <div class="card">
+    <form id="research-form">
+      <div class="formgrid">
+        <div class="field"><label for="platform">AI platform *</label><select id="platform" required><option value="">Choose platform</option><option>ChatGPT</option><option>Google Gemini</option><option>Perplexity</option><option>Google AI Overview</option></select></div>
+        <div class="field"><label for="date">Research date *</label><input id="date" type="date" required></div>
+        <div class="field"><label for="market">Market / location *</label><select id="market" required><option value="">Choose market</option><option>Pune</option><option>Mumbai</option><option>India</option><option>Other</option></select></div>
+        <div class="field"><label for="course">Course category</label><select id="course"><option>General institute search</option><option>Data Science</option><option>Data Analytics</option><option>Artificial Intelligence / ML</option><option>Cybersecurity</option><option>Cloud Computing</option><option>DevOps</option><option>Python</option><option>Software Testing</option><option>Full Stack Development</option><option>Digital Marketing</option><option>SAP</option><option>Networking</option><option>Other</option></select></div>
+        <div class="field full"><label for="question">Exact research question *</label><input id="question" required placeholder="e.g. Best Data Science institutes in Pune?"></div>
+        <div class="field full"><label for="answer">Full AI response *</label><textarea id="answer" required placeholder="Paste the actual answer here. Include the full response, not just the brand names."></textarea></div>
+        <div class="field"><label for="sources">Source URLs / citations</label><textarea id="sources" style="min-height:80px" placeholder="Paste URLs, one per line"></textarea></div>
+        <div class="field"><label for="competitors-mentioned">Competitors mentioned (comma-separated)</label><textarea id="competitors-mentioned" style="min-height:80px" placeholder="ITVedant, PIIDM, Digital Trainee"></textarea></div>
+        <div class="field full"><label>SevenMentor status in this response</label><div class="checkrow"><label><input type="checkbox" id="mentioned"> Mentioned</label><label><input type="checkbox" id="recommended"> Recommended / positively suggested</label><label><input type="checkbox" id="cited"> sevenmentor.com cited</label></div></div>
+        <div class="field"><label for="position">Position in answer (if mentioned)</label><select id="position"><option value="">Not applicable / unknown</option><option value="1">1st / first listed</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option><option value="5">5th or lower</option></select></div>
+        <div class="field"><label for="sentiment">Sentiment</label><select id="sentiment"><option>Not assessed</option><option>Positive</option><option>Neutral</option><option>Negative</option><option>Mixed</option></select></div>
+        <div class="field full"><label for="notes">Research notes (optional)</label><textarea id="notes" style="min-height:75px" placeholder="Anything notable about the answer, wording or source quality"></textarea></div>
+      </div>
+      <div class="actions" style="margin-top:18px"><button type="submit" class="btn primary">Save research record</button><button type="reset" class="btn">Clear form</button></div>
+    </form>
+  </div>
+</section>
+
+<section class="section" id="page-research">
+  <div class="pagehead"><div><div class="eyebrow">Research library</div><h1>Research records</h1><p class="sub">Review, filter and manage your manually collected AI answers.</p></div><div class="actions"><button class="btn primary" onclick="showPage('add')">＋ Add research</button></div></div>
+  <div class="filterrow"><select id="filter-platform"><option value="">All platforms</option><option>ChatGPT</option><option>Google Gemini</option><option>Perplexity</option><option>Google AI Overview</option></select><select id="filter-market"><option value="">All markets</option><option>Pune</option><option>Mumbai</option><option>India</option><option>Other</option></select><input id="filter-search" placeholder="Search question or answer"></div>
+  <div id="records-table"></div>
+</section>
+
+<section class="section" id="page-competitors">
+  <div class="pagehead"><div><div class="eyebrow">Competitive intelligence</div><h1>Competitor analysis</h1><p class="sub">Compare how often competing brands appear in the responses you collect.</p></div></div>
+  <div class="notice">Competitor counts are based on the competitor names you enter in each research record. They do not imply market share or quality.</div>
+  <div class="grid two">
+    <div class="card"><h2>Competitor mention leaderboard</h2><p class="desc">Mentions across all saved answers.</p><div id="competitor-leaderboard"></div></div>
+    <div class="card"><h2>Manage competitors</h2><p class="desc">Edit the names tracked by this dashboard.</p><div class="field"><label for="new-competitor">Add competitor name</label><div style="display:flex;gap:8px"><input id="new-competitor" placeholder="e.g. ABC Institute"><button class="btn primary" onclick="addCompetitor()">Add</button></div></div><div id="competitor-list" style="margin-top:14px"></div></div>
+  </div>
+</section>
+
+<section class="section" id="page-prompts">
+  <div class="pagehead"><div><div class="eyebrow">Research toolkit</div><h1>Prompt library</h1><p class="sub">Run consistent questions on each platform and paste the answers into Add Research.</p></div></div>
+  <div class="notice">For fair comparisons, run the same prompt on all platforms, in the same market, with a fresh conversation or search where possible.</div>
+  <div class="card"><div id="prompt-list"></div></div>
+</section>
+
+<section class="section" id="page-reports">
+  <div class="pagehead"><div><div class="eyebrow">Export center</div><h1>Reports & backup</h1><p class="sub">Download your research records or print a snapshot of the dashboard.</p></div></div>
+  <div class="grid three">
+    <div class="card"><h2>CSV export</h2><p class="desc">Open your records in Excel or Google Sheets.</p><button class="btn primary" onclick="exportCSV()">Download CSV</button></div>
+    <div class="card"><h2>JSON backup</h2><p class="desc">Save all records and settings for backup or transfer.</p><button class="btn primary" onclick="exportJSON()">Download backup</button></div>
+    <div class="card"><h2>Print report</h2><p class="desc">Print or save a PDF summary using your browser.</p><button class="btn primary" onclick="window.print()">Print / Save PDF</button></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h2>Restore backup</h2><p class="desc">Import a JSON backup previously exported from this app. This replaces current local records.</p><input type="file" id="import-file" accept=".json,application/json"><button class="btn" style="margin-top:10px" onclick="importJSON()">Import backup</button></div>
+</section>
+
+<section class="section" id="page-settings">
+  <div class="pagehead"><div><div class="eyebrow">Workspace configuration</div><h1>Settings</h1><p class="sub">Brand profile and data handling details.</p></div></div>
+  <div class="grid two">
+    <div class="card"><h2>Tracked brand</h2><div class="metricline"><span>Brand name</span><strong>SevenMentor</strong></div><div class="metricline"><span>Website</span><strong>sevenmentor.com</strong></div><div class="metricline"><span>Industry</span><strong>IT & professional training</strong></div><div class="metricline"><span>Markets</span><strong>Pune · Mumbai</strong></div></div>
+    <div class="card"><h2>Data & privacy</h2><p class="desc">This version stores data in your current browser using localStorage. It does not upload research to a server.</p><div class="metricline"><span>Saved records</span><strong id="settings-count">0</strong></div><div class="metricline"><span>Storage mode</span><strong>Local browser</strong></div><div class="metricline"><span>External AI connection</span><strong>Not connected</strong></div><button class="btn danger" style="margin-top:12px" onclick="clearAllData()">Delete all local research</button></div>
+  </div>
+</section>
+</div>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const KEY='sevenmentor_ai_visibility_v1';
+const DEFAULT_COMPETITORS=['ITVedant','PIIDM','Digital Trainee','School of Digital Marketing','Exponent IT Training'];
+const PROMPTS=[
+'Best IT training institutes in Pune?',
+'Best IT training institutes in Mumbai?',
+'Best Data Science courses in Pune?',
+'Best Data Analytics courses in Mumbai?',
+'Best Digital Marketing institutes in Pune?',
+'Best Cybersecurity training institutes in Pune?',
+'Best Python training institutes in Pune?',
+'Best Software Testing courses in Mumbai?',
+'Best Cloud Computing training institutes?',
+'Best DevOps training institutes in Pune?',
+'Best Full Stack Development courses in Pune?',
+'Which training institutes offer placement assistance in Pune?',
+'Which institutes offer practical projects and hands-on training?',
+'Best affordable professional training institutes in Pune?',
+'Which institutes offer both online and offline classes?',
+'Best IT training institutes for freshers in Pune?',
+'Best institutes for career switchers in Mumbai?',
+'Compare SevenMentor with other IT training institutes in Pune.',
+'Is SevenMentor a good institute for professional training?',
+'Which institute is best for Data Science with placement support in Pune?'
+];
+let state=loadState();
+function loadState(){try{const x=JSON.parse(localStorage.getItem(KEY));return {records:Array.isArray(x?.records)?x.records:[],competitors:Array.isArray(x?.competitors)?x.competitors:DEFAULT_COMPETITORS};}catch(e){return {records:[],competitors:DEFAULT_COMPETITORS};}}
+function saveState(){localStorage.setItem(KEY,JSON.stringify(state));renderAll();}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function pct(n,d){return d?Math.round(n/d*100):0;}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2300);}
+function showPage(name){document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+name).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));const labels={dashboard:'Dashboard',research:'Research Records',add:'Add Research',competitors:'Competitor Analysis',prompts:'Prompt Library',reports:'Reports & Backup',settings:'Settings'};document.getElementById('crumb').textContent=labels[name];if(name==='research')renderRecords();if(name==='competitors')renderCompetitors();if(name==='prompts')renderPrompts();window.scrollTo(0,0);}
+document.getElementById('nav').addEventListener('click',e=>{const b=e.target.closest('button[data-page]');if(b)showPage(b.dataset.page);});
+document.getElementById('date').value=new Date().toISOString().slice(0,10);
+document.getElementById('research-form').addEventListener('submit',e=>{e.preventDefault();const answer=document.getElementById('answer').value.trim();if(!answer){toast('Please paste the full AI response.');return;}const record={id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),platform:val('platform'),date:val('date'),market:val('market'),course:val('course'),question:val('question'),answer,sources:val('sources'),competitors:val('competitors-mentioned').split(',').map(x=>x.trim()).filter(Boolean),mentioned:checked('mentioned'),recommended:checked('recommended'),cited:checked('cited'),position:val('position'),sentiment:val('sentiment'),notes:val('notes')};state.records.unshift(record);saveState();e.target.reset();document.getElementById('date').value=new Date().toISOString().slice(0,10);showPage('dashboard');toast('Research record saved on this device.');});
+function val(id){return document.getElementById(id).value.trim()}function checked(id){return document.getElementById(id).checked}
+function metrics(){const r=state.records,n=r.length,m=r.filter(x=>x.mentioned).length,rec=r.filter(x=>x.recommended).length,c=r.filter(x=>x.cited).length;let all=0,brand=m;const counts={};r.forEach(x=>{(x.competitors||[]).forEach(name=>{const k=name.trim();if(!k)return;counts[k]=(counts[k]||0)+1;all++;})});all+=brand;const mention=pct(m,n),recommend=pct(rec,n),citation=pct(c,n),sov=pct(brand,all);const score=n?Math.round(.3*mention+.3*recommend+.2*citation+.2*sov):null;return {n,m,rec,c,mention,recommend,citation,sov,score,counts};}
+function renderDashboard(){const x=metrics();setText('kpi-score',x.score===null?'—':x.score);setText('kpi-total',x.n);setText('kpi-mentions',x.n?x.mention+'%':'—');setText('kpi-recommend',x.n?x.recommend+'%':'—');setText('settings-count',x.n);
+const platforms=['ChatGPT','Google Gemini','Perplexity','Google AI Overview'];document.getElementById('platform-bars').innerHTML=x.n?platforms.map(p=>{const a=state.records.filter(r=>r.platform===p),v=pct(a.filter(r=>r.mentioned).length,a.length);return `<div class="barrow"><span>${esc(p)}</span><div class="track"><div class="fill" style="width:${v}%"></div></div><span class="barval">${a.length?v+'%':'—'}</span></div>`}).join(''):'<div class="empty"><strong>No research data yet</strong>Add your first AI answer to see platform comparisons.</div>';
+document.getElementById('component-metrics').innerHTML=x.n?[['Mention rate',x.mention],['Recommendation rate',x.recommend],['Official citation rate',x.citation],['Share of voice',x.sov]].map(([k,v])=>`<div class="metricline"><span>${k}</span><strong>${v}%</strong></div>`).join(''):'<div class="empty">Metrics will appear after you add research.</div>';
+document.getElementById('recent-records').innerHTML=x.n?`<div class="tablewrap"><table style="min-width:0"><thead><tr><th>Platform</th><th>Question</th><th>Date</th></tr></thead><tbody>${state.records.slice(0,5).map(r=>`<tr><td>${esc(r.platform)}</td><td>${esc(r.question)}</td><td>${esc(r.date)}</td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No records saved yet.</div>';
+const sorted=Object.entries(x.counts).sort((a,b)=>b[1]-a[1]).slice(0,6),max=Math.max(1,...sorted.map(a=>a[1]));document.getElementById('competitor-bars').innerHTML=sorted.length?sorted.map(([name,count])=>`<div class="barrow"><span>${esc(name)}</span><div class="track"><div class="fill" style="width:${count/max*100}%"></div></div><span class="barval">${count}</span></div>`).join(''):'<div class="empty">Enter competitor names in your research records to compare mentions.</div>';}
+function setText(id,v){document.getElementById(id).textContent=v;}
+function renderRecords(){const fp=val('filter-platform'),fm=val('filter-market'),q=val('filter-search').toLowerCase();const rows=state.records.filter(r=>(!fp||r.platform===fp)&&(!fm||r.market===fm)&&(!q||(r.question+' '+r.answer).toLowerCase().includes(q)));document.getElementById('records-table').innerHTML=rows.length?`<div class="tablewrap"><table><thead><tr><th>Date / Platform</th><th>Question / market</th><th>Brand signals</th><th>Competitors</th><th>Action</th></tr></thead><tbody>${rows.map(r=>`<tr><td><strong>${esc(r.platform)}</strong><br><span class="muted">${esc(r.date)}</span></td><td>${esc(r.question)}<br><span class="tag gray">${esc(r.market)}</span> <span class="tag gray">${esc(r.course)}</span></td><td>${r.mentioned?'<span class="tag green">Mentioned</span>':'<span class="tag gray">Not mentioned</span>'} ${r.recommended?'<span class="tag green">Recommended</span>':''} ${r.cited?'<span class="tag">Official citation</span>':''}<br><span class="muted">${esc(r.sentiment||'')}</span></td><td>${esc((r.competitors||[]).join(', ')||'—')}</td><td><button class="btn" onclick="viewRecord('${r.id}')">View</button> <button class="btn danger" onclick="deleteRecord('${r.id}')">Delete</button></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty"><strong>No matching records</strong>Change your filters or add a research response.</div>';}
+['filter-platform','filter-market','filter-search'].forEach(id=>document.getElementById(id).addEventListener('input',renderRecords));
+function viewRecord(id){const r=state.records.find(x=>x.id===id);if(!r)return;alert(`${r.platform} · ${r.date} · ${r.market}\n\nQuestion: ${r.question}\n\nBrand mentioned: ${r.mentioned?'Yes':'No'}\nRecommended: ${r.recommended?'Yes':'No'}\nOfficial site cited: ${r.cited?'Yes':'No'}\n\nFULL RESPONSE:\n${r.answer}\n\nSOURCES:\n${r.sources||'None entered'}\n\nNOTES:\n${r.notes||'None'}`);}
+function deleteRecord(id){if(!confirm('Delete this research record?'))return;state.records=state.records.filter(x=>x.id!==id);saveState();renderRecords();toast('Record deleted.');}
+function renderCompetitors(){const x=metrics(),entries=Object.entries(x.counts).sort((a,b)=>b[1]-a[1]);document.getElementById('competitor-leaderboard').innerHTML=entries.length?entries.map(([name,count])=>`<div class="metricline"><span>${esc(name)}</span><strong>${count} ${count===1?'mention':'mentions'}</strong></div>`).join(''):'<div class="empty">No competitor mentions recorded yet.</div>';document.getElementById('competitor-list').innerHTML=state.competitors.map((c,i)=>`<div class="metricline"><span>${esc(c)}</span><button class="btn danger" onclick="removeCompetitor(${i})">Remove</button></div>`).join('');}
+function addCompetitor(){const el=document.getElementById('new-competitor'),n=el.value.trim();if(!n)return;if(state.competitors.some(x=>x.toLowerCase()===n.toLowerCase())){toast('Competitor already exists.');return;}state.competitors.push(n);el.value='';saveState();renderCompetitors();toast('Competitor added.');}
+function removeCompetitor(i){state.competitors.splice(i,1);saveState();renderCompetitors();}
+function renderPrompts(){document.getElementById('prompt-list').innerHTML=PROMPTS.map((p,i)=>`<div class="promptitem"><span class="promptnum">${String(i+1).padStart(2,'0')}</span><div class="prompttext">${esc(p)}</div><button class="copybtn" onclick="copyPrompt(${i})">Copy prompt</button></div>`).join('');}
+function copyPrompt(i){navigator.clipboard?.writeText(PROMPTS[i]).then(()=>toast('Prompt copied.')).catch(()=>toast('Select and copy the prompt manually.'));}
+function download(name,content,type){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();URL.revokeObjectURL(url);}
+function exportCSV(){const fields=['date','platform','market','course','question','mentioned','recommended','cited','position','sentiment','competitors','sources','answer','notes'];const csv=[fields.join(','),...state.records.map(r=>fields.map(k=>{let v=k==='competitors'?(r.competitors||[]).join('; '):(r[k]??'');return '"'+String(v).replace(/"/g,'""')+'"';}).join(','))].join('\r\n');download('sevenmentor-ai-research.csv','\ufeff'+csv,'text/csv;charset=utf-8');toast('CSV export prepared.');}
+function exportJSON(){download('sevenmentor-ai-backup.json',JSON.stringify(state,null,2),'application/json');toast('JSON backup prepared.');}
+function importJSON(){const f=document.getElementById('import-file').files[0];if(!f){toast('Choose a JSON backup file first.');return;}const reader=new FileReader();reader.onload=()=>{try{const x=JSON.parse(reader.result);if(!Array.isArray(x.records)||!Array.isArray(x.competitors))throw Error('Invalid backup');if(!confirm('Importing will replace current local research. Continue?'))return;state={records:x.records,competitors:x.competitors};saveState();toast('Backup imported successfully.');}catch(e){toast('Could not import: invalid backup file.');}};reader.readAsText(f);}
+function clearAllData(){if(!confirm('Permanently delete all research records from this browser? Export a backup first if needed.'))return;state.records=[];saveState();toast('All local research deleted.');}
+function renderAll(){renderDashboard();if(document.getElementById('page-research').classList.contains('active'))renderRecords();if(document.getElementById('page-competitors').classList.contains('active'))renderCompetitors();}
+renderAll();
+</script>
+</body>
+</html>
